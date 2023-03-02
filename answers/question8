@@ -1,0 +1,2 @@
+select device_type,SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(Stats_Access_Link, '://', -1), '/', 2), ':', 1) 
+from table1
