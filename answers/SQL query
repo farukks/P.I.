@@ -1,0 +1,12 @@
+update table1
+set daily_vaccinations=(
+  select median_daily
+  from (  select country,date,daily_vaccinations,vaccines,percentile_cont(0.5)
+          within group ( order by daily_vaccinations)
+          over (partition by country) as median_daily
+          from table1
+          order by country,daily_vaccinations
+  )table2
+  where table2.country=table1.country
+)
+where daily_vaccinations is null;
