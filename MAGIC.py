@@ -34,7 +34,7 @@ data.isna().sum()
 # In[ ]:
 
 
-#visualize the labels(virusnot a virus) ratio
+#visualize the labels(virus,not a virus) ratio
 sb.countplot(data['isVirus'])
 
 
